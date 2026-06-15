@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container{
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .details{
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .details p{
+            padding: 10px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+
+        .btn{
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .details-btn{
+            background-color: #007bff;
+        }
+
+        .home-btn{
+            background-color: #6c757d;
+        }
+
+        .update-btn{
+            background-color: #28a745;
+        }
+
+        .delete-btn{
+            background-color: #dc3545;
+        }
+
+        .btn:hover{
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Employee Details</h1>
+
+        <div class="details">
+            <p><strong>ID:</strong> {{emp.id}}</p>
+            <p><strong>Name:</strong> {{emp.name}}</p>
+            <p><strong>Age:</strong> {{emp.age}}</p>
+            <p><strong>Department:</strong> {{emp.dept}}</p>
+            <p><strong>Salary:</strong> {{emp.sal}}</p>
+            <p><strong>Company:</strong> {{emp.company}}</p>
+        </div>
+
+        <a href="{% url 'details' %}" class="btn details-btn">All Employees</a>
+        <a href="{% url 'home' %}" class="btn home-btn">Home</a>
+        <a href="{% url 'update' emp.id %}" class="btn update-btn">Update</a>
+        <a href="{% url 'delete' emp.id %}" class="btn delete-btn">Delete</a>
+    </div>
+
+</body>
+</html>

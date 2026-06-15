@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1{
+            color: #333;
+        }
+
+        table{
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th{
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+        }
+
+        td{
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even){
+            background-color: #f9f9f9;
+        }
+
+        tr:hover{
+            background-color: #e9ecef;
+        }
+
+        a{
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .home-btn{
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .home-btn:hover{
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Employee Details</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Company</th>
+        </tr>
+
+        {% for i in emp %}
+        <tr>
+            <td>
+                <a href="{% url 'single' i.id %}">
+                    {{ i.id }}
+                </a>
+            </td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.dept }}</td>
+            <td>{{ i.sal }}</td>
+            <td>{{ i.company }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'home' %}" class="home-btn">Add Employee</a>
+
+</body>
+</html>

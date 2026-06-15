@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction:column;
+            border: 2px solid;
+            height: 500px;
+            width: 300px;
+            border-radius: 5px;
+            justify-content: space-between;
+            .inp{
+                height: 40px;
+                width: 190px;
+               
+                margin: auto;
+            }
+            button{
+                height: 40px;
+                width: 190px;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <input class="inp" type="text" name="name" placeholder="enter your name"><br>
+        <input class="inp" type="text" name="dept" placeholder="enter your dept "><br>
+        <input class="inp" type="text" name="sal" placeholder="enter your sal"><br>
+        <input class="inp" type="text" name="exp" placeholder="enter your experince "><br>
+        <button type="submit">submit</button>
+        
+    </form>
+</body>
+</html>

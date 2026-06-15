@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>task display</h1>
+    <button><a href="{% url 'create' %}">create</a></button>
+    <div>
+    {% for i in task1%}
+    <div>
+    <p><a href="{% url 'update' i.id %}">{{i.id}}</a></p>
+    <p>{{i.task}}</p>
+    <p>{{i.desc}}</p>
+    <p>{{i.priority}}</p>
+    <p>{{i.date}}</p>
+    <p>{{i.status}}</p>
+    <button><a href="{% url 'single' i.id %}">view</a></button>
+    </div>
+    {% endfor %}
+    </div>
+    
+</body>
+</html>

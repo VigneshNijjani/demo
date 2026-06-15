@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student History</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            margin:0;
+            padding:20px;
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+        }
+
+        .back{
+            background:#333;
+            color:white;
+            text-decoration:none;
+            padding:8px 15px;
+            border-radius:5px;
+            display:inline-block;
+            margin-bottom:15px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th{
+            background:#007bff;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:10px;
+            text-align:center;
+            border:1px solid #ddd;
+        }
+
+        tr:nth-child(even){
+            background:#f9f9f9;
+        }
+
+        tr:hover{
+            background:#e9ecef;
+        }
+
+        .undo{
+            background:green;
+            color:white;
+            text-decoration:none;
+            padding:6px 12px;
+            border-radius:5px;
+        }
+
+        .delete{
+            background:red;
+            color:white;
+            text-decoration:none;
+            padding:6px 12px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student History</h2>
+
+    <a href="{% url 'display' %}" class="back">Back to Records</a>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Roll No</th>
+            <th>Gender</th>
+            <th>Branch</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for i in student %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.rollno }}</td>
+            <td>{{ i.gender }}</td>
+            <td>{{ i.branch }}</td>
+            <td>{{ i.email }}</td>
+
+            <td>
+                <a href="{% url 'undo' i.id %}" class="undo">
+                    Undo
+                </a>
+
+                <a href="{% url 'p_delete' i.id %}"
+                   class="delete">
+                   delete
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8">No Records Found</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

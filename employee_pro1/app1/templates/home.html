@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form{
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            width: 350px;
+        }
+
+        h2{
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .inp{
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .inp:focus{
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #0056b3;
+        }
+
+        .view-btn{
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <h2>Add Employee</h2>
+
+        <input class="inp" type="text" name="name" placeholder="Enter Name">
+        <input class="inp" type="text" name="age" placeholder="Enter Age">
+        <input class="inp" type="text" name="dept" placeholder="Enter Department">
+        <input class="inp" type="text" name="sal" placeholder="Enter Salary">
+        <input class="inp" type="text" name="company" placeholder="Enter Company">
+
+        <button type="submit">Submit</button>
+
+        <a href="http://127.0.0.1:8000/admin/login/?next=/admin/" class="view-btn">
+            View Employees
+        </a>
+    </form>
+
+</body>
+</html>
