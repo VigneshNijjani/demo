@@ -37,5 +37,15 @@ def update_employee(req,inp_id):
     
     employee_data.save()
     return JsonResponse({"status":"updated sucessfully"})
+
+def delete_employee(req,inp_id):
+    employee=Employee.objects.get(id=inp_id)
+    employee.delete()
+    return JsonResponse({"status":"deleted sucessfully"})
          
+
+def display(req):
+    employee_data=Employee.objects.all()
+    filtered_data=Employeeserializer(employee_data,many=True)
+    return JsonResponse(filtered_data.data,safe=False)
     
